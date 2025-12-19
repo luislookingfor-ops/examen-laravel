@@ -9,19 +9,18 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
-    public function up(): void
-    {
-        Schema::create('users', function (Blueprint $table) {
+    public function up(): void {
+        Schema::create('citas', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
-            $table->rememberToken();
+            $table->string('cliente');
+            $table->string('telefono');
+            $table->text('diseno');
+            $table->string('zona_cuerpo');
+            $table->dateTime('fecha_hora');
+            $table->enum('estado', ['agendada', 'cancelada'])->default('AGENDADA');
             $table->timestamps();
         });
     }
-
     /**
      * Reverse the migrations.
      */
